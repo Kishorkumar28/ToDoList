@@ -32,14 +32,23 @@
 
 
 
-.todos {
+/* .todos {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap; 
     
 
+  } */
+
+  .todos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; 
+    flex-wrap: wrap;
+    margin-left: 100px;
   }
+  
   
   .todo {
     min-height: 250px;
@@ -51,6 +60,7 @@
     border-radius: 7px;
     border: 2px solid black;
     padding: 7px;
+    margin:5px;
     
   }
   

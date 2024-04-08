@@ -22,7 +22,7 @@ export default function Todoapp() {
       return;
     }
     const newTodo = { name: todoName, description: todoDescription, status: 'Not Started' };
-    setTodos([...todos, newTodo]);
+    setTodos([newTodo, ...todos]); // Add new todo to the beginning of the array
     setTodoName('');
     setTodoDescription('');
   };
@@ -75,7 +75,7 @@ export default function Todoapp() {
   });
 
   return (
-    <div className="container" >
+    <div className="container">
       <h1 className="header">To Do App</h1>
       <div className="input">
         <input
@@ -99,9 +99,8 @@ export default function Todoapp() {
         ) : (
           <input className="inputs" id="addbutton" type="button" value="Add Todo" onClick={handleAddTodo} />
         )}
-        
       </div>
-      <div className='Mytodos'>
+      <div className="Mytodos">
         <h1 className="header">My Todos</h1>
         <select id="filter" value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
           <option value="All">All</option>
@@ -112,8 +111,12 @@ export default function Todoapp() {
           {filteredTodos.map((todo, index) => (
             <div className="todo" key={index}>
               <h3>Name: {todo.name}</h3>
-              <div className="description">{todo.description}</div>
-              <select id="status" value={todo.status} onChange={(e) => handleStatusChange(index, e.target.value)}>
+              <div className="description"><h3>Description: {todo.description}</h3></div>
+              <select
+                id="status"
+                value={todo.status}
+                onChange={(e) => handleStatusChange(index, e.target.value)}
+              >
                 <option value="Not Started">Not Started</option>
                 <option value="Completed">Completed</option>
               </select>
@@ -128,4 +131,3 @@ export default function Todoapp() {
     </div>
   );
 }
-
